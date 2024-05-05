@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     # external app
     'rest_framework',
     'drf_yasg',
+    # interanl app
+    'invoices',
+    'invoice_items'
 ]
 
 MIDDLEWARE = [
