@@ -1,5 +1,11 @@
 from django.db import models
-from invoices.models import Invoice
+
+
+class Invoice(models.Model):
+    date = models.DateField()
+
+    def __str__(self):
+        return f"Invoice {self.id}"
 
 
 class InvoiceItem(models.Model):

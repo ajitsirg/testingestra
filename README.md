@@ -15,19 +15,55 @@ to be able to GET the created data. We would prefer to see this as a
 RESTful API.
 
 
-For this task we are using python{Django},Database(Sqlite)
-in That steps we are using 
-1. virtrual env for isotaltion area not to impact other program 
-2. python have 3.11.5 version
-3. install required libraries
-        --pip install django djangorestframework drf-yasg
-4. Create a project 
-    django-admin startproject testing_project
-    cd testing_project
-5. then create two apps in this directory:
-     python manage.py startapp invoices
-     python manage.py startapp invoice_items
-6.     
-    
+Setup Environment:
+    Set up a virtual environment to isolate dependencies: python -m venv env
+    Activate the virtual environment: source env/bin/activate
 
+Install required libraries: pip install django djangorestframework drf-yasg
+    Create Django Project:
+    Create a Django project: django-admin startproject testing_project
+
+Navigate to project directory:
+    cd testing_project
     
+Create a apps: 
+    python manage.py startapp invoice_items
+
+Define Models:
+    Define models in the models.py files of the invoice_items apps.
+
+Create Serializers:
+    Create serializers for models in the serializers.py files of both models.
+
+Define Views:
+    Define API views using Django Rest Framework's @api_view decorator.
+
+Migrate Database:
+    Run migrations: python manage.py makemigrations and python manage.py migrate
+
+Create a superuser: 
+    python manage.py createsuperuser (username: ajitsingh, password: 123)
+
+Setup URLs:
+    Create urls.py files in each app to define URL patterns and link them to view functions.
+
+Integrate Swagger:
+    Add rest_framework and drf_yasg to INSTALLED_APPS in settings.py.
+    Define URL schemas in the project's urls.py, including URLs for Swagger and Redoc.
+
+Run Server:
+    Start the development server: python manage.py runserver
+
+Admin Interface:
+    Access the admin interface at: http://127.0.0.1:8000/admin/ (username: ajit, password: 123)
+
+Testing:
+    Test the APIs using Swagger documentation at: http://127.0.0.1:8000/swagger/
+    Test the live version at: http://13.127.222.17:8080/ on aws
+    Test the  admin side also by http://127.0.0.1:8000/admin/ use username ajit password 123
+*** Notes:
+     for intailly i also used .gitignore for pycache & migrations & other unrequired file from env
+
+GIT LINK : https://github.com/ajitsirg/testingestra 
+
+

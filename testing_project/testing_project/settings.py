@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     # interanl app
-    'invoices',
     'invoice_items'
 ]
 
