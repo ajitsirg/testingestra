@@ -1,5 +1,7 @@
-# testingestra 
-## Task for Test
+# Testingestra
+
+## Problem Statement
+
 The project will have 2 models: "Invoice" and "InvoiceItem". They both
 must have a unique 'id' column as well as be relationship using a
 foreign key to the Invoice id on the InvoiceItem model, so the invoice
@@ -14,56 +16,89 @@ another "POST" endpoint to add an InvoiceItem. Add also some endpoints
 to be able to GET the created data. We would prefer to see this as a
 RESTful API.
 
+## Setup
 
-Setup Environment:
-    Set up a virtual environment to isolate dependencies: python -m venv env
-    Activate the virtual environment: source env/bin/activate
+### Installation
 
-Install required libraries: pip install django djangorestframework drf-yasg
-    Create Django Project:
-    Create a Django project: django-admin startproject testing_project
+1. Clone the repository:
+   git clone https://github.com/ajitsirg/testingestra.git
 
-Navigate to project directory:
+2. Set up a virtual environment to isolate dependencies:
+    python -m venv env
+
+3. Activate the virtual environment:
+    For Windows:
+            .\env\Scripts\activate
+    For macOS and Linux:
+            source env/bin/activate    
+
+4. Install dependencies using the requirements file:
+    pip install -r requirements.txt            
+
+5. Navigate to the project directory:
     cd testing_project
-    
-Create a apps: 
-    python manage.py startapp invoice_items
 
-Define Models:
-    Define models in the models.py files of the invoice_items apps.
+## Running the Server
+6. Run migrations to create database tables:
+    python manage.py makemigrations
+    python manage.py migarte
 
-Create Serializers:
-    Create serializers for models in the serializers.py files of both models.
+7. Create a superuser for accessing the admin interface:
+    python manage.py createsuperuser
 
-Define Views:
-    Define API views using Django Rest Framework's @api_view decorator.
+8. Create a superuser for accessing the admin interface:
+    python manage.py createsuperuser
+    user name
+    password
+9. Start the development server:
+    python manage.py runserver
 
-Migrate Database:
-    Run migrations: python manage.py makemigrations and python manage.py migrate
+## Testing
 
-Create a superuser: 
-    python manage.py createsuperuser (username: ajitsingh, password: 123)
+Access the admin interface at http://127.0.0.1:8000/admin/ using the superuser credentials.
+ id :ajit(or created)
+ password 123(as created )
+Test the APIs using Swagger documentation at http://127.0.0.1:8000/swagger/.
 
-Setup URLs:
-    Create urls.py files in each app to define URL patterns and link them to view functions.
+## API Endpoints
+#   Create Invoice
+    URL: POST /invoices/
+    Description: Creates a new invoice with the specified date.
+    Payload Structure:
+       json
+            {
+                "date": "YYYY-MM-DD"
+            }
+    HTTP Method: POST
+# Create Invoice Item
+    URL: POST /invoices/<invoice_id>/items/
+    Description: Adds an item to the specified invoice.
+    Payload Structure:
+        json
+            {
+                "description": "string",
+                "units": "integer",
+                "amount": "numeric"
+            }
+    HTTP Method: POST
 
-Integrate Swagger:
-    Add rest_framework and drf_yasg to INSTALLED_APPS in settings.py.
-    Define URL schemas in the project's urls.py, including URLs for Swagger and Redoc.
+# Retrieve Invoice
+    URL: GET /invoices/<invoice_id>/
+    Description: Retrieves details of the specified invoice.
+    HTTP Method: GET
 
-Run Server:
-    Start the development server: python manage.py runserver
+# Retrieve Invoice Item
+    URL: GET /invoices/<invoice_id>/items/<item_id>/
+    Description: Retrieves details of the specified invoice item.
+    HTTP Method: GET
 
-Admin Interface:
-    Access the admin interface at: http://127.0.0.1:8000/admin/ (username: ajit, password: 123)
+## Notes
+    The .gitignore file excludes .pycache, migrations, and other unnecessary files from version control.
+    Live Version
+    You can access the live version of the application at http://13.127.222.17:8080/ on AWS.
 
-Testing:
-    Test the APIs using Swagger documentation at: http://127.0.0.1:8000/swagger/
-    Test the live version at: http://13.127.222.17:8080/ on aws
-    Test the  admin side also by http://127.0.0.1:8000/admin/ use username ajit password 123
-*** Notes:
-     for intailly i also used .gitignore for pycache & migrations & other unrequired file from env
+# GitHub Repository
+    You can find the project repository on GitHub: https://github.com/ajitsirg/testingestra
 
-GIT LINK : https://github.com/ajitsirg/testingestra 
 
 
