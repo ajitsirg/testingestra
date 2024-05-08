@@ -76,10 +76,12 @@ Test the APIs using Swagger documentation at http://127.0.0.1:8000/swagger/.
     Payload Structure:
         json
             {
-                "description": "string",
-                "units": "integer",
-                "amount": "numeric"
-            }
+            "invoice_id": integer,
+            "description": "string",
+            "units": integer,
+            "amount": numeric
+             }
+
     HTTP Method: POST
 
 # Retrieve Invoice
@@ -91,6 +93,17 @@ Test the APIs using Swagger documentation at http://127.0.0.1:8000/swagger/.
     URL: GET /invoices/<invoice_id>/items/<item_id>/
     Description: Retrieves details of the specified invoice item.
     HTTP Method: GET
+
+
+# List All Invoices
+    URL: GET /invoices/
+    Description: Retrieves details of all invoices.
+    HTTP Method: GET
+
+# List All Invoice Items
+    URL: GET /invoice-items/
+    Description: Retrieves details of all invoice items.
+    HTTP Method: GET    
 
 ## Notes
     The .gitignore file excludes .pycache, migrations, and other unnecessary files from version control.
